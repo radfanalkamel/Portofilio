@@ -1,0 +1,17 @@
+.buttonscroll {
+    position: fixed; /* تثبيت الزر في مكانه */
+    bottom: 20px; /* ضبط المسافة من أسفل الشاشة */
+    left: 50%; /* محاذاة الزر أفقيًا */
+    transform: translateX(-50%); /* تعويض المسافة من اليسار */
+    width: 50px; /* ضبط عرض الزر */
+    height: 50px; /* ضبط ارتفاع الزر */
+    border-radius: 50%; /* جعل الزر دائريًا */
+    background-color: transparent; /* لون الزر */
+    color: white; /* لون النص داخل الزر */
+    cursor: pointer; /* إظهار مؤشر النقر عند التحويم */
+    transition: transform 0.5s ease; /* إضافة تحويل سلس عند الضغط */
+    display: flex; /* تفعيل خاصية flexbox */
+    justify-content: center; /* محاذاة المحتوى أفقيًا في المنتصف */
+    align-items: center; /* محاذاة المحتوى رأسيًا في المنتصف */
+  }
+  

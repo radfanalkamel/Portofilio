@@ -1,0 +1,356 @@
+@import "../../Styles/Variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
+
+.me {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    height: auto;
+    direction: rtl; // إضافة هذه الخاصية لجعل الاتجاه من اليمين إلى اليسار
+
+    @include breakpoint(md) {
+        padding: 0 1.5rem; // تعديل حجم الهامش
+    }
+
+    transition: 0.5s ease all;
+
+    .liveDot {
+        display: inline-block;
+        width: 10px !important;
+        height: 10px !important;
+        background-color: greenyellow;
+        border-radius: 50% !important;
+        animation: pulse 1.5s infinite;
+        box-shadow: 0 0 5px 0 gold;
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 10px 0 gold;
+        }
+        50% {
+            transform: scale(1.5);
+            box-shadow: 0 0 0px 0 goldenrod;
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 0px 0 gold;
+        }
+    }
+
+    p {
+        margin: 5px;
+        font-size: large;
+        color: rgba($primary, 0.4);
+        font-weight: 300;
+        max-width: 650px;
+        min-width: 200px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 1%;
+            font-size: 12px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    }
+
+    hr {
+        background-color: rgba($primary, 0.9);
+        border: 0;
+        width: 100px; // تعديل حجم الخط
+        padding: 2px;
+        border-radius: 30px;
+        margin-top:10px; // هامش للخط الأفقي
+        
+        @media (max-width: 768px) {
+        background-color: rgba($primary, 0.9);
+        border: 0;
+        width: 50px; // تعديل حجم الخط
+        padding: 2px;
+        border-radius: 30px;
+        margin-top:-10px; // هامش للخط الأفقي
+        }
+    }
+
+    button {
+        margin-top: 5%;
+        margin-right: 5px; // تعديل الاتجاه بدلاً من left
+        z-index: 9;
+        cursor:pointer;
+        outline: none;
+        padding: 0.8rem 4rem;
+        border-radius: $borderRadius;
+        font-size: 1rem;
+        font-family: inherit;
+        background: $primary;
+        color: $dark;
+        justify-content: center;
+        border: 1px solid transparent;
+        transition: 0.5s ease all;
+      
+        &.message {
+          border-color: $primary;
+          background: rgba($primary, 0.1);
+          color: $primary;
+      
+          &::before {
+            content: "";
+            font-family: FontAwesome;
+            font-weight: 900;
+          }
+          &:hover {
+            border-color: $primary;
+            background: $greenme;
+            color: $primary;
+          }
+        }
+      
+        &.consultation {
+          border-color: $primary;
+          background: rgba($primary, 0.9);
+          color: $dark;
+      
+          &::before {
+            content: "";
+            font-family: FontAwesome;
+            font-weight: 900;
+          }
+        }
+      
+        &:hover {
+          border-color: $primary;
+          background: rgba($primary, 0.1);
+          color: $primary;
+        }
+      
+        &.cv {
+          border-color: $primary;
+          background: rgba($primary, 0.9);
+          color: $dark;
+      
+          &::before {
+            content: "";
+            font-family: FontAwesome;
+            font-weight: 900;
+          }
+      
+          &:hover {
+            border-color: $primary;
+            background: rgba($primary, 0.1);
+            color: $primary;
+          }
+        }
+      
+        &:active {
+          border-color: $primary;
+          background: linear-gradient(rgba($primary, 0.2), rgba($primary, 0.3));
+          color: $primary;
+        }
+      
+        @media (max-width: 768px) {
+          flex-wrap: wrap-reverse;
+          padding: 1rem 4rem;
+          width: 100%;
+          align-content: center;
+          align-self: center;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+        }
+      }
+      
+
+    span {
+        display: inline-flex;
+        white-space: nowrap;
+        overflow: hidden;
+        border-left: 10px solid; // تعديل الاتجاه بدلاً من right
+        animation: type 4.5s steps(23), blink 0.5s step-end infinite alternate;
+        border-radius: 3px;
+    
+        @keyframes type {
+            from {
+                width: 0;
+            }
+    
+            to {
+                width: 50%; // اجعل العرض 100% لضمان عرض النص بالكامل
+            }
+        }
+    
+        @keyframes blink {
+            50% {
+                border-color: rgba($primary, 0.1);
+            }
+        }
+        
+        &::selection {
+            background: $primary;
+            color: $dark; // لون النص أثناء التحديد
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: row-reverse; // تعديل الاتجاه ليكون من اليمين إلى اليسار
+        margin-bottom: $spacing-lg;
+
+        @include breakpoint(md) {
+            flex-direction: row-reverse; // تعديل الاتجاه ليكون من اليمين إلى اليسار
+            align-items: center;
+            margin-bottom: 0;
+            margin-left: calc(0.5rem + #{$spacing-md}); // تعديل الاتجاه بدلاً من right
+        }
+
+        li {
+            a {
+                text-decoration: none;
+                font-size: 20px;
+                color: rgba($primary, 0.9);
+
+                &:hover {
+                    border-color: $primary;
+                    color: rgba($primary, 0.2);
+                }
+
+                &:active {
+                    border-color: $primary;
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    h1 {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        color: rgb(255, 255, 255);
+        font-size: 7rem;
+        line-height: 1.2; // ضبط ارتفاع السطر
+        flex-direction: column;
+        justify-content: right;
+        align-items: end;
+        -webkit-user-select: text;
+        -ms-user-select: none;
+        user-select: all;
+        word-break: keep-all;
+        border-radius: $borderRadius;
+        font-weight: 600;
+    
+        &::selection {
+            background: $primary;
+            color: $dark; // لون النص أثناء التحديد
+        }
+
+        .bold {
+            font-weight: 900;
+            color: $primary;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 6rem;
+            &::selection {
+                background: $primary;
+                color: $dark; // لون النص أثناء التحديد
+            }
+            
+            @media (max-width: 768px) {
+                margin-top: 30%;
+                font-size: 35px;
+                line-height: 40px;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            margin-top: 10%;
+            font-size: 40px;
+            line-height: 50px;
+            justify-content: center;
+            align-items: center;
+
+            p {
+                font-size: 16px;
+            }
+            
+        }
+    }
+
+
+    .botdiv {
+    }
+
+    .botdiv::after {
+        content: '';
+        color: rgba($primary, 0.9);
+        position: absolute;
+        top: 95%;
+        right: 50%; // تعديل الاتجاه بدلاً من left
+        transform: translate(50%, -50%); // تعديل الاتجاه بدلاً من translate(-50%, -50%)
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 15px solid rgba($primary, 0.3);
+        animation: upDown 1s infinite;
+        border-radius: 50%;
+    }
+
+    @keyframes upDown {
+        0% {
+            transform: translate(50%, -50%) translateY(0); // تعديل الاتجاه ب
+        }
+    }
+        @keyframes upDown {
+            0% {
+                transform: translate(50%, -50%) translateY(0); // تعديل الاتجاه بدلاً من translate(-50%, -50%)
+            }
+            50% {
+                transform: translate(50%, -50%) translateY(-5px); // تعديل الاتجاه بدلاً من translate(-50%, -50%)
+            }
+            100% {
+                transform: translate(50%, -50%) translateY(0); // تعديل الاتجاه بدلاً من translate(-50%, -50%)
+            }
+        }
+    
+        .photome {
+            position: absolute;
+            bottom: 66%;
+            right: 68%; // تعديل الاتجاه بدلاً من left
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            background-color: #f4f4f4;
+            justify-content: center;
+            align-items: center;
+            border-right: 200px solid transparent; // تعديل الاتجاه بدلاً من left
+            border-bottom: 200px solid rgba($primary, 0.3);
+            background-color: rgba($primary, 0.6);
+        }
+    
+        .photome::after {
+            content: '';
+            color: $primary;
+            position: absolute;
+            top: 0%;
+            right: 0%; // تعديل الاتجاه بدلاً من left
+            border-right: 200px solid transparent; // تعديل الاتجاه بدلاً من left
+            border-bottom: 200px solid rgba($primary, 0.3);
+            background-color: rgba($primary, 0.6);
+            border-radius: 2%;
+        }
+    
+        .photome img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    
+        .photome:hover::after {
+            transform: translateY(-5px);
+        }    
+    }
+
+    

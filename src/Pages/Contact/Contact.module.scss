@@ -1,0 +1,66 @@
+@import "./../../Styles/Variables.scss";
+
+.container {
+    display: flex;
+    max-width:1200px;
+  
+  
+    &--fluid {
+      margin: 0;
+      max-width: 100%;
+    }
+  
+    &__row {
+      max-width:1200px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 1%;
+      padding: 2%;
+    }
+    &__col {
+      padding: 5px;
+      flex-basis: calc(100 / 7) * 1%;
+    }
+  
+    h1 {
+      
+      padding: 1rem;
+      color: rgb(255, 255, 255);
+      font-size: 50px;
+      line-height: 40px;
+      justify-content: center;
+      align-items: center;
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
+      word-break: normal;
+      width: 350px;
+      background: radial-gradient(ellipse at top, #7f42ca, transparent),
+      radial-gradient(ellipse at bottom, #50868b, transparent);
+      border-radius: 20px;
+  
+      &:hover {
+        text-transform: uppercase;
+        transition: 0.9s ease all;
+        padding: 1rem;
+        justify-content: center;
+        align-items: center;
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+        word-break: normal;
+        max-width: 350px;
+        border-radius: 300px 300px;
+        left: 45%;
+        background: rgb(0, 101, 47);
+        border-color: $primary;
+        background: rgba($primary, 0.1);
+        color: $primary;
+      }
+    }
+  }
+h1{
+    color: white;
+}

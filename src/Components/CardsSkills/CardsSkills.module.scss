@@ -1,0 +1,190 @@
+@import "../../Styles/Variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
+*{
+  direction: rtl;
+
+}
+.h1{
+  margin-right: 15px;
+  margin-bottom: 50px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between; /* يوزع البطاقات بين مساحاتها */
+  flex-wrap: wrap; /* يمكن أن تلتف البطاقات عندما يكون هناك الكثير منها */
+  position: relative;
+
+  @media (max-width: 768px) {
+    h1{
+      margin-top:0;
+      margin-bottom: 50px;
+      font-size: 4rem;
+      display: flex;
+      justify-content: space-between; /* يوزع البطاقات بين مساحاتها */
+      flex-wrap: wrap; /* يمكن أن تلتف البطاقات عندما يكون هناك الكثير منها */
+      position: relative;
+    
+    }
+}
+
+}
+.cardsContainer {
+
+  margin-top: 0px;
+  display: flex;
+  justify-content: space-around; /* يوزع البطاقات بين مساحاتها */
+  flex-wrap: wrap; /* يمكن أن تلتف البطاقات عندما يكون هناك الكثير منها */
+}
+
+.card {
+  background: linear-gradient(to bottom right, rgba($secandrycolor,0.1), $dark, rgba($primary,0.1)); // خلفية متدرجة من 4 جهات
+
+  width: calc(33.33% - 20px); /* تحديد عرض البطاقة بنسبة 33.33% من عرض الشاشة مع فراغات بينها */
+  margin-bottom: 20px;
+
+  border-radius: $borderRadius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 0;
+  
+  border-left-width: 2px; /* تعيين عرض البوردر الذي يظهر من اليسار */
+  border-left-style:groove; /* نمط البوردر */
+  border-left-color: rgba($secandrycolor,0.1); /* لون البوردر */
+
+  border-right-width: 1px; /* تعيين عرض البوردر الذي يظهر من اليسار */
+  border-right-style:solid; /* نمط البوردر */
+  border-right-color: rgba($primary,0.3);
+   
+  border-top-width: 1px; /* تعيين عرض البوردر الذي يظهر من اليسار */
+  border-top-style:solid; /* نمط البوردر */
+  border-top-color: $primary;
+
+  border-bottom-width: 1px; /* تعيين عرض البوردر الذي يظهر من اليسار */
+  border-bottom-style:solid; /* نمط البوردر */
+  border-bottom-color: rgba($primary,0.1);
+
+
+
+
+  .cardimage {
+    border-radius: 20px;
+    margin: 20px;
+    flex: 1;
+    position: relative; /* تمكين الوضع النسبي لإضافة عناصر موضوعة مطابقة */
+    overflow: hidden;
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  
+    .overlay {
+
+      position: absolute;
+      top: 10px; /* التحكم بالمسافة من الأعلى */
+      left: 10px; /* التحكم بالمسافة من اليسار */
+      background-color:transparent; /* لون خلفية النص */
+      padding: 5px; /* التباعد داخل العنصر */
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: $borderRadius - 5px; /* حدود دائرية للعنصر */
+      border: 1px solid rgba(rgba($secandrycolor,0.1), $alpha: 0.5);
+
+      &:hover{
+        background-color: $greenme;
+
+      }
+    }
+  
+    p {
+      font-size: 2px;
+      color: white; /* لون النص */
+      font-size: 16px; /* حجم الخط */
+      margin: 0; /* الهامش بين العناصر */
+    }
+  }
+  
+
+  .cardcontent {
+    font-family: $Poppins;
+    flex: 1;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 20px;
+
+    h3 {
+      font-weight: 600;
+      color: white;
+      letter-spacing: -0.02em;
+      line-height: 40px;
+      font-style: normal;
+      font-size: 28px;
+      padding-bottom: 8px;
+    }
+
+    p {
+      font-weight: 600;
+      line-height: 32px;
+      color: hsla(0, 0%, 100%, 0.5);
+      font-size: 16px;
+      max-width: 470px;
+      font-family: $Poppins;
+    }
+
+    button {
+      /* تطبيق خلفية متدرجة */
+      background-color: $dark;
+      transition: opacity 0.3s ease;
+      opacity: 1;
+      color: $light;
+      border: 1px solid rgba($light,0.2);
+      padding: 1rem 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.4s ease;
+      width: 100%;
+      margin-top: 1rem;
+
+      &:hover {
+        background-color: rgba($light, 0.1);
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .card {
+    width: calc(50% - 20px); /* تحديد عرض البطاقة بنسبة 50% عندما تكون الشاشة أصغر */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: calc(100% - 20px); /* تحديد عرض البطاقة بنسبة 100% عندما تكون الشاشة أصغر بشكل كبير */
+  }
+}
+
+.infinite-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px; /* ارتفاع الشريط */
+  background-color: $primary; /* لون الشريط */
+  animation: infinite-progress 2s linear infinite; /* تطبيق الحركة للشريط */
+  color: white;
+
+  @keyframes infinite-progress {
+    0% {
+      transform: scaleX(0); /* تبدأ بعرض صفري */
+    }
+    50% {
+      transform: scaleX(1); /* تكبر الى عرض كامل */
+    }
+    100% {
+      transform: scaleX(0); /* تعود الى حاله الابتدائية */
+    }
+  }
+}
+

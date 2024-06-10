@@ -1,0 +1,64 @@
+@import "../../Styles/Variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
+
+.me {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row; /* تغيير الاتجاه ليكون أفقي */
+  align-items: start; /* محاذاة العناصر بالوسط عمودياً */
+
+  p {
+    margin: 0; /* إزالة هامش الفقرة الافتراضي */
+    color: rgba($primary, 0.9); /* لون النص */
+    font-family: 'IBM Plex Sans', sans-serif; /* استخدام الخط المحدد */
+    font-weight: 400; /* وزن الخط */
+    font-size: 19px; /* حجم الخط */
+    margin-left: 10px; /* هامش أيسر */
+    p {
+      margin-bottom: 10px; /* هامش أسفل للفقرة في حالة التوجيه العمودي */
+      margin-left: 0; /* إزالة هامش أيسر للفقرة في حالة التوجيه العمودي */
+      font-size: 36px;
+    }
+  }
+  ul {
+
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row; /* تغيير الاتجاه ليكون أفقي */
+    align-items: center; /* محاذاة العناصر بالوسط عمودياً */
+    margin-bottom: $spacing-lg; /* إزالة هامش اللستة الافتراضي */
+
+    
+
+    li {
+      margin-left: 10px; /* هامش أيسر بين الأيقونات */
+      a {
+        color: rgba($primary, 0.9);
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: rgba($primary, 0.3);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* تغيير الاتجاه ليكون عمودياً عندما يكون عرض الشاشة أقل من 768 بكسل */
+    align-items: flex-start; /* محاذاة العناصر بالبداية عند التوجيه العمودي */
+    
+    ul {
+      flex-direction: row; /* تغيير الاتجاه ليكون عمودياً عندما يكون عرض الشاشة أقل من 768 بكسل */
+      align-items: flex-start; /* محاذاة العناصر بالبداية عند التوجيه العمودي */
+      margin-top: 10px; /* هامش أعلى لللستة في حالة التوجيه العمودي */
+      
+      
+      
+      li {
+        margin-left: 40px;
+        margin-bottom: 5px; /* هامش أسفل لكل أيقونة في حالة التوجيه العمودي */
+      }
+    }
+  }
+}

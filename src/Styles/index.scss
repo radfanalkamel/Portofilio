@@ -1,0 +1,72 @@
+@import "./Variables.scss";
+
+* {
+    box-sizing: border-box;
+    margin: 2px;
+    padding: 0;
+    
+}
+
+body {
+    
+    width: 100%;
+    height: 100%;
+    font-family: $Poppins;
+    color: $dark;
+    overflow-x: hidden; /* لمنع السكروب الافقي */
+}
+
+#root {
+    min-height: 400vh; /* استخدم min-height بدلاً من height لتكون الخلفية على كامل الشاشة */
+    background: $dark;
+    
+}
+/********** Template CSS **********/
+:root {
+  --primary: #6244c5;
+  --secondary: #ffc448;
+  --light: #fafafb;
+  --dark: #12141d;
+}
+
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 45px;
+  bottom: 45px;
+  z-index: 99;
+}
+
+.my-6 {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.py-6 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/*** Skills ***/
+#skill .progress {
+  height: 5px;
+  border-radius: 5px;
+}
+
+#skill .progress .progress-bar {
+  width: 0px;
+  border-radius: 5px;
+  transition: 3s;
+}
+
+#skill .nav-pills .nav-link {
+  color: var(--dark);
+}
+
+#skill .nav-pills .nav-link.active {
+  color: #ffffff;
+}
+
+#skill .tab-content hr {
+  width: 30px;
+}

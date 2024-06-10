@@ -1,0 +1,80 @@
+$dark: rgb(29, 4, 29); // حقي
+// $dark: rgb(24, 23, 23); حق عبدالرحمن اللون
+$light: white;
+$primary: rgb(233, 231, 182);
+$bg:  rgb(29, 4, 29);
+$divHome: rgb(0, 0, 0);
+$spacing-md: 16px;
+$spacing-lg: 32px;
+$max-width: 1200px;
+$borderRadius: 20px;
+$headerHeight: 100px;
+$divHomeHeight: calc(100vh - #{$headerHeight});
+$divHomeWidth: 200px;
+$secandrycolor:rgb(239, 179, 247);
+$greenme:rgba(#195022, 0.9);
+$gold:rgba(#b2a332, 0.9);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+$Poppins: 'IBM Plex Sans', sans-serif;
+
+@mixin breakpoint($point) {
+  @if $point == md {
+    @media (min-width: 48em) {
+      @content;
+    }
+  }
+}
+
+body {
+  background-color: $bg;
+  color: $dark;
+  font-family: $Poppins;
+}
+
+.header {
+  background-color: $dark;
+  color: $light;
+  height: $headerHeight;
+  padding: 0 $spacing-md;
+
+  @include breakpoint(md) {
+    padding: 0 $spacing-lg;
+  }
+}
+
+.button-primary {
+  background-color: $primary;
+  color: $light;
+  border-radius: $borderRadius;
+  padding: $spacing-md;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($primary, 10%);
+  }
+
+  &:active {
+    background-color: darken($primary, 20%);
+  }
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $spacing-lg - 25px; 
+}
+
+.divHome {
+  background-color: $divHome;
+  height: $divHomeHeight;
+  width: $divHomeWidth;
+}
+
+.example-responsive {
+  @include breakpoint(md) {
+    background-color: lighten($dark, 10%);
+  }
+}

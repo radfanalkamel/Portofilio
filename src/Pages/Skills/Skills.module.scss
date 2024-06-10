@@ -1,0 +1,325 @@
+@import "../../Styles/Variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
+
+.me {
+    left: 0;
+    top: 100%;
+    width: 100vw;
+    /* استخدام وحدة viewport width بدلاً من 100% لتغطية العرض بالكامل */
+    margin: 0;
+    /* لإزالة الهامش الافتراضي */
+    padding: 0 1.5rem;
+    z-index: 1;
+    /* لضمان عرض اللون خلف العناصر الأخرى */
+
+
+    @include breakpoint(md) {
+        padding: 0 3rem;
+    }
+
+    transition: 0.5s ease all;
+
+    p {
+        margin: 0px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        font-size: large;
+        color: rgba($primary, 0.4);
+        font-weight: 300;
+        max-width: 650px;
+        min-width: 200px;
+        color: rgba($primary, 0.6);
+
+        @media (max-width: 768px) {
+
+            margin-bottom: 1%;
+            font-size: 12px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .buttonsContainer {
+
+        display: flex;
+        flex: 1;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        /* يوزع العناصر بالتساوي */
+
+
+
+        .WebDevelopment {
+            position: relative;
+            /* تمكين الوضع النسبي لإضافة عناصر موضوعة مطابقة */
+            overflow: hidden;
+            width: calc(33.33% - 20px);
+            background-color: transparent;
+            margin-top: 1.5vh;
+            border-radius: $borderRadius;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-left-width: 2px;
+            /* تعيين عرض البوردر الذي يظهر من اليسار */
+            border-left-style: groove;
+            /* نمط البوردر */
+            border-left-color: rgba($secandrycolor, 0.1);
+            /* لون البوردر */
+
+            border-right-width: 1px;
+            /* تعيين عرض البوردر الذي يظهر من اليسار */
+            border-right-style: solid;
+            /* نمط البوردر */
+            border-right-color: rgba($primary, 0.3);
+
+            border-top-width: 1px;
+            /* تعيين عرض البوردر الذي يظهر من اليسار */
+            border-top-style: solid;
+            /* نمط البوردر */
+            border-top-color: rgba($primary, 0.2);
+
+            border-bottom-width: 1px;
+            /* تعيين عرض البوردر الذي يظهر من اليسار */
+            border-bottom-style: solid;
+            /* نمط البوردر */
+            border-bottom-color: rgba($primary, 0.9);
+
+            color: white;
+            padding: 50px;
+
+            .imagereactjs img {
+                justify-content: center;
+                justify-self: center;
+                display: inline-flex;
+                flex-wrap: wrap;
+                width: 100px;
+
+            }
+
+            /* Add the chat icon using Font Awesome class */
+            &::before {
+                content: "";
+                /* Chat icon code from Font Awesome */
+                font-family: FontAwesome;
+                font-weight: 900;
+            }
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        .overlay {
+
+            .persen {
+                padding: 20px;
+
+            }
+
+            position: absolute;
+            top: 20px;
+            /* التحكم بالمسافة من الأعلى */
+            left: 20px;
+            /* التحكم بالمسافة من اليسار */
+            background-color:$dark;
+            /* لون خلفية النص */
+            padding: 5px;
+            /* التباعد داخل العنصر */
+            border-radius:$borderRadius - 5px;
+            /* حدود دائرية للعنصر */
+            border: 1px solid rgba(rgba($secandrycolor, 0.3), $alpha: 0.5);
+
+            &:hover {
+                background-color: $greenme;
+
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            width: calc(100vw - 100px);
+            display: block;
+            flex: 1;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            /* تغيير عرض الأزرار في الشاشات الصغيرة */
+            .WebDevelopment {
+                width: calc(50% - 20px);
+                /* تقسيم العرض إلى نصفين مع هوامش بعرض 20 بيكسل */
+                margin-top: 1.5vh;
+                background-color: transparent;
+                color: white;
+                padding: 10px;
+            }
+        }
+    }
+
+
+    span {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 5px solid;
+        animation: type 1.5s steps(12), blink 0.9s step-end infinite alternate;
+
+        @keyframes type {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 30%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: rgba($primary, 0.1);
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin-top: 20px;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: $spacing-lg;
+
+        @include breakpoint(md) {
+            margin-top: 20px;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 0;
+            margin-right: calc(0.5rem + #{$spacing-md});
+        }
+
+        li {
+            a {
+                text-decoration: none;
+                font-size: 50px;
+                color: rgba($primary, 0.9);
+
+                &:hover {
+                    border-color: $primary;
+                    color: rgba($primary, 0.2);
+                }
+
+                &:active {
+                    border-color: $primary;
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    h1 {
+
+        margin-top: 100px;
+        left: 0;
+        color: rgb(255, 255, 255);
+        font-size: 90px;
+        line-height: 90px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        -webkit-user-select: none;
+        /* Safari */
+        -ms-user-select: none;
+        /* IE 10 and IE 11 */
+        user-select: none;
+        /* Standard syntax */
+        word-break: keep-all;
+        border-radius: $borderRadius;
+        font-weight: 600;
+
+
+
+
+
+
+        .bold {
+            font-weight: 900;
+            color: $primary;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 80px;
+
+            @media (max-width: 768px) {
+                margin-top: 20%;
+                font-size: 35px;
+                line-height: 40px;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            margin-top: 80px;
+            font-size: 35px;
+            line-height: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .containerimg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        max-width: 1920px;
+        background-position: left;
+        background: no-repeat;
+        z-index: 0;
+    }
+}
+
+.me {
+    display: block;
+    width: 100%;
+    padding: 0 1.5rem;
+    height: auto;
+    left: 0;
+
+    // ألوان الأزرار
+    button {
+        margin-top: 5%;
+        cursor: pointer;
+        outline: none;
+        padding: 0.8rem 4rem;
+        border-radius: $borderRadius;
+        font-size: 1rem;
+        font-family: inherit;
+        border: px solid transparent;
+        transition: 0.5s ease all;
+    }
+
+    // تنسيق الألوان للأزرار
+    button.primary {
+        background: $primary;
+        color: $dark;
+
+        &:hover {
+            background: rgba($primary, 0.1);
+            color: $primary;
+        }
+
+        &:active {
+            background: linear-gradient(rgba($primary, 0.2), rgba($primary, 0.3));
+        }
+    }
+
+    button.green {
+        background: #4CAF50; // لون أخضر
+        color: white;
+
+        &:hover {
+            background: rgba(76, 175, 80, 0.1); // تغيير اللون عند التحويم
+            color: #ffffff;
+        }
+
+        &:active {
+            background: linear-gradient(rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.3)); // تغيير اللون عند الضغط
+        }
+    }
+}

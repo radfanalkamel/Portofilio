@@ -1,0 +1,112 @@
+// SoftSkills.module.scss
+
+@import "../../Styles/Variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
+
+// Define keyframes for animations
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+// Main container for Softskills
+.Softskills {
+    margin: 30px;
+    direction: rtl;
+
+    // Title style
+    h2 {
+        background-image: linear-gradient(to right, rgba(var(--secandrycolor), 0.3), rgba(var(--secandrycolor), 0.0));
+        border-radius: calc(var(--borderRadius) - 10px);
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        color: $light;
+        padding-bottom: 5px;
+        animation: fadeInUp 1s ease-out;
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+    }
+    // List style for skills
+    ul {
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 5px;
+                left: -5px;
+                width: 10px;
+                height: 10px;
+                background-color: var(--primary);
+                border-radius: 50%;
+            }
+        }
+    }
+    // Description style
+    .Softskills-description {
+        margin-top: 5px;
+        font-size: 16px;
+        color: $light;
+        text-align: right;
+        animation: fadeInUp 1s ease-out;
+
+        @media (max-width: 768px) {
+            font-size: 14px;
+        }
+    }
+    // Progress bar style
+    .progress {
+        height: 30px; /* ارتفاع شريط التقدم */
+        background-color: $dark; /* لون خلفية شريط التقدم */
+        border-radius: $borderRadius ; /* نصل الزوايا */
+        overflow: hidden;
+        height: 20px;
+    
+        .progress-bar {
+            text-align: left;
+            background-color: $dark; /* لون شريط التقدم */
+            transition: width 0.5s ease-out;
+    
+            p {
+                text-align: left;
+                font-weight:bold; /* سمك الخط */
+                color: $light; /* لون النص */
+                line-height: 20px; /* ارتفاع السطر */
+                background-color: rgba($secandrycolor, $alpha: 0.1);
+                padding-left: 20px;
+            }
+        }
+        // Hover effect for progress bar
+        &:hover .progress-bar {
+            width: 100%; // تغيير نسبة التقدم في حالة التحويم
+            background-color: rgba($dark, $alpha: 0.6); // تغيير لون شريط التقدم في حالة التحويم
+            color: $light; // تغيير لون النص في حالة التحويم
+        }
+    }
+}
+
